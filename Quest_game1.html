@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квест-гра: Події в Україні 1919 року</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .header p {
+            margin: 5px 0 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .question {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .options li {
+            display: flex;
+            justify-content: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
+            padding: 10px;
+            background: #dff0d8;
+            border: 1px solid #d6e9c6;
+            border-radius: 5px;
+        }
+        .gift {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #4caf50;
+        }
+        .gift img {
+            display: block;
+            margin: 10px auto;
+            max-width: 100px;
+        }
+        .event-image {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .event-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Квест-гра: Події в Україні 1919 року</h1>
+            <p>Розробник гри: Дебрецені Дмитрій, 8-Б клас</p>
+        </div>
+        <p>Пройди квест і дізнайся більше про 5 ключових подій в Україні 1919 року.</p>
+        <div id="game">
+            <!-- Content dynamically updated by JavaScript -->
+        </div>
+    </div>
+    <script>
+        const events = [
+            
+        {
+                question: "Що сталося в січні 1919 року?",
+                options: [
+                    "Проголошення Акта Злуки між УНР та ЗУНР",
+                    "Розгортання Другої світової війни",
+                    "Об'єднання України та Польщі в союз",
+                    "Початок визвольних змагань"
+                ],
+                correct: 0,
+                explanation: "22 січня 1919 року відбулося проголошення Акта Злуки між Українською Народною Республікою (УНР) та Західноукраїнською Народною Республікою (ЗУНР).",
+                gift: "<p>Вітаємо! Ви отримуєте віртуальний подарунок: медаль героя історії!</p><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Ukrainian_Goldenstar.jpg/120px-Ukrainian_Goldenstar.jpg' alt='Медаль героя історії'>",
+                image: "https://gdb.rferl.org/5223D4CA-44CD-4209-BC13-87AFA72A1FAE_w1080_h608_b.jpg"
+            },
+            {
+                question: "Яке місто стало столицею УНР у 1919 році?",
+                options: [
+                    "Київ",
+                    "Харків",
+                    "Кам'янець-Подільський",
+                    "Львів"
+                ],
+                correct: 2,
+                explanation: "У 1919 році столиця УНР була перенесена до Кам'янця-Подільського.",
+                gift: "<p>Чудово! Ви отримуєте віртуальний подарунок: орден історичного знавця!</p><img src='https://cdn.abo.media/upload/article/res/770-430/o_1eccr8182m6m8m7f931nvjktq2a.jpg' alt='Орден історичного знавця'>",
+                image: "https://karpatium.com.ua/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcndQIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e9d9004b033cc3473cf8d64ceb4dea85dca86e11/%D0%BA%D0%B0%D0%BC%D1%8F%D0%BD%D0%B5%D1%86%D1%8C-%D0%BF%D0%BE%D0%B4%D1%96%D0%BB%D1%8C%D1%81%D0%BA%D0%B0-%D1%84%D0%BE%D1%80%D1%82%D0%B5%D1%86%D1%8F.jpeg"
+            },
+            {
+                question: "Хто очолив Директорію УНР у 1919 році?",
+                options: [
+                    "Симон Петлюра",
+                    "Михайло Грушевський",
+                    "Володимир Винниченко",
+                    "Євген Петрушевич"
+                ],
+                correct: 0,
+                explanation: "Симон Петлюра був головою Директорії УНР у 1919 році.",
+                gift: "<p>Вітаємо! Ви отримуєте віртуальний подарунок: символ перемоги!</p><img src='https://www.volynnews.com/files/news/2022/05-04/338189/224824ad349dabc60a25c57a48564dae.jpg' alt='Символ перемоги'>",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/%D0%A1%D0%B8%D0%BC%D0%BE%D0%BD_%D0%9F%D0%B5%D1%82%D0%BB%D1%8E%D1%80%D0%B0_1922.jpg/220px-%D0%A1%D0%B8%D0%BC%D0%BE%D0%BD_%D0%9F%D0%B5%D1%82%D0%BB%D1%8E%D1%80%D0%B0_1922.jpg"
+            },
+            {
+                question: "Яка подія була ключовою у серпні 1919 року?",
+                options: [
+                    "Київська катастрофа",
+                    "Підписання Брест-Литовського миру",
+                    "Оголошення незалежності України",
+                    "Початок Зимового походу"
+                ],
+                correct: 0,
+                explanation: "Київська катастрофа сталася у серпні 1919 року, коли війська УНР втратили контроль над Києвом через наступ білогвардійців.",
+                gift: "<p>Чудова відповідь! Ви отримуєте віртуальний подарунок: історичний щит!</p><img src='https://bigkyiv.com.ua/wp-content/uploads/2022/07/293098037_5054492641266556_3522126334447513909_n.jpg' alt='Історичний щит'>",
+                image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/%D0%94%D0%BE%D0%B1%D1%80%D0%BE%D0%B2%D0%BE%D0%BB%D1%8C%D1%86%D1%8B_%D0%B2_%D0%9A%D0%B8%D0%B5%D0%B2%D0%B5._%D0%A1%D0%BE%D1%84%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F_%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C.PNG"
+            },
+            {
+                question: "Що стало наслідком наступу більшовиків на Україну в 1919 році?",
+                options: [
+                    "Окупація більшовиками більшої частини України",
+                    "Створення незалежної української армії",
+                    "Вступ України до Ліги Націй",
+                    "Об'єднання з Польщею"
+                ],
+                correct: 0,
+                explanation: "У 1919 році більшовики окупували більшу частину території України.",
+                gift: "<p>Ви молодець! Ви отримуєте віртуальний подарунок: прапор незалежності!</p><img src='https://mefodiy.org.ua/wp-content/uploads/2016/08/FalgUA.jpg' alt='Прапор незалежності'>",
+                image: "https://dn.gov.ua/storage/app/sites/1/uploaded-files/1669041255572.png"
+            },
+            {
+                question: "Який договір був підписаний між УНР та Польщею у 1919 році?",
+                options: [
+                    "Варшавський договір",
+                    "Брест-Литовський договір",
+                    "Ризький договір",
+                    "Акт Злуки"
+                ],
+                correct: 0,
+                explanation: "Варшавський договір був підписаний між УНР та Польщею, що передбачав військову підтримку у боротьбі з більшовиками.",
+                gift: "<p>Чудово! Ви отримуєтеимвол перемоги!</p><img src='hhttps://stikers.com.ua/image/cache/catalog/%20%D0%B0%D0%B2%D1%82%D0%BE/Patriot/2-%D0%BF%D0%B0%D0%BB%D1%8C%D1%86%D0%B0-%D0%BC%D0%B8%D1%80-%D1%86%D0%B2-700x700.png' alt='Диплом стратегічного мислителя'>",
+                image: "https://www.jnsm.com.ua/ures/img/Pilsydskyi_Petliura_1920.jpg"
+            },
+            {
+                question: "Хто був командувачем українських військ під час Київської операції у серпні 1919 року?",
+                options: [
+                    "Омелян Волох",
+                    "Михайло Омелянович-Павленко",
+                    "Іван Омелянович",
+                    "Василь Тютюнник"
+                ],
+                correct: 1,
+                explanation: "Михайло Омелянович-Павленко командував українськими військами під час Київської операції у 1919 році.",
+                gift: "<p>Вітаємо! Ви отримуєте віртуальний подарунок: почесний меч командира!</p><img src='https://heroldmaster.kiev.ua/wp-content/uploads/2022/07/vol_1_1000x1000-1-300x300.png' alt='Меч командира'>",
+                image: "https://upload.wikimedia.org/wikipedia/commons/9/91/Omeljanowycz-Pawlenko.jpg"
+            },
+            {
+                question: "Який регіон став ареною найбільших боїв у 1919 році?",
+                options: [
+                    "Галичина",
+                    "Поділля",
+                    "Волинь",
+                    "Полісся"
+                ],
+                correct: 0,
+                explanation: "Галичина стала основною ареною бойових дій між українськими та польськими військами у 1919 році.",
+                gift: "<p>Ви молодець! Ви отримуєте віртуальний подарунок: прапор незалежності!</p><img src='https://mefodiy.org.ua/wp-content/uploads/2016/08/FalgUA.jpg' alt='Карта бойових дій'>",
+                image: "https://zbruc.eu/sites/default/files/images/2022/09/z1663226860a14i.png"
+            },
+            {
+                question: "Яка армія була створена під час Зимового походу?",
+                options: [
+                    "Армія УНР",
+                    "Галицька армія",
+                    "Армія Січових стрільців",
+                    "Повстанська армія"
+                ],
+                correct: 3,
+                explanation: "Під час Зимового походу була сформована Повстанська армія для боротьби з окупантами.",
+                gift: "<p>Чудово! Ви отримуєте віртуальний подарунок: символ боротьби!</p><img src='https://kapterka.com.ua/image/cache/catalog/167/111/Suv/1znachki/20-batalion-radioelektronnoy-borbi-znachok-max-990.jpg' alt='Символ боротьби'>",
+                image: "https://nova.te.ua/wp-content/uploads/2017/10/1295249130__15.jpg"
+            },
+            {
+                question: "Яка країна підтримувала більшовиків у їхніх діях проти України?",
+                options: [
+                    "Росія",
+                    "Німеччина",
+                    "Австро-Угорщина",
+                    "США"
+                ],
+                correct: 0,
+                explanation: "Росія підтримувала більшовиків у їхніх військових діях проти України.",
+                gift: "<p>Чудова відповідь! Ви отримуєте віртуальний подарунок: історичний щит!</p><img src='https://bigkyiv.com.ua/wp-content/uploads/2022/07/293098037_5054492641266556_3522126334447513909_n.jpg' alt='Зірка опору'>",
+                image: "https://proshokino.com.ua/wp-content/uploads/2022/04/1_dieno0csymzr_goqmo_qka.jpeg"
+            }
+        
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const questionData = events[currentQuestion];
+            const gameDiv = document.getElementById('game');
+
+            gameDiv.innerHTML = `
+                <div class="question">${questionData.question}</div>
+                <div class="event-image">
+                    <img src="${questionData.image}" alt="Ілюстрація до події">
+                </div>
+                <ul class="options">
+                    ${questionData.options.map((option, index) => `<li><button onclick="checkAnswer(${index})">${option}</button></li>`).join('')}
+                </ul>
+            `;
+        }
+
+        function checkAnswer(selected) {
+            const questionData = events[currentQuestion];
+            const gameDiv = document.getElementById('game');
+
+            if (selected === questionData.correct) {
+                score++;
+                gameDiv.innerHTML = `<div class="result">Правильно! ${questionData.explanation}</div>
+                                     <div class="gift">${questionData.gift}</div>`;
+            } else {
+                gameDiv.innerHTML = `<div class="result">Неправильно. ${questionData.explanation}</div>`;
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion < events.length) {
+                setTimeout(loadQuestion, 3000);
+            } else {
+                setTimeout(showFinalScore, 3000);
+            }
+        }
+
+        function showFinalScore() {
+            const gameDiv = document.getElementById('game');
+            gameDiv.innerHTML = `
+                <div class="result">Гра завершена! Ви набрали ${score} з ${events.length} балів.</div>
+                <p>Дякуємо за участь у грі!</p>
+            `;
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
